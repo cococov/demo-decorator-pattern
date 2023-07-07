@@ -5,3 +5,5 @@
 ```sh
 deno run main.ts
 ```
+
+![structure](./structure.png "Structure")
