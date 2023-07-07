@@ -15,8 +15,8 @@ import {
   SwordDecorator as PjSwordDecorator,
 } from './concreteDecorators/pj/index.ts';
 
-let enemy = new BaseEnemy();
-let pj = new BasePj();
+let enemy = new BaseEnemy(40);
+let pj = new BasePj(60);
 
 enemy = new EnemyCottonShirtDecorator(enemy);
 enemy = new EnemyGuardDecorator(enemy);
@@ -30,10 +30,16 @@ pj = new PjHoodDecorator(pj);
 pj = new PjSandalsDecorator(pj);
 pj = new PjSwordDecorator(pj);
 
-while(pj.getLife() > 0 && enemy.getLife() > 0) {
-  enemy.setLife(enemy.takeDamage(pj.doDamage()));
+while (pj.getLife() > 0 && enemy.getLife() > 0) {
+  const damageToEnemy = enemy.takeDamage(pj.doDamage());
+  enemy.setLife(enemy.getLife() - damageToEnemy);
+  if (damageToEnemy > 0) console.log(`\x1b[92mYou do ${damageToEnemy} damage to the enemy!\x1b[0m`);
+
   if (enemy.getLife() <= 0) break;
-  pj.setLife(pj.takeDamage(enemy.doDamage()));
+
+  const damageToPj = pj.takeDamage(enemy.doDamage());
+  pj.setLife(pj.getLife() - damageToPj);
+  if (damageToPj > 0) console.log(`\x1b[91mThe enemy does ${damageToPj} damage to you!\x1b[0m`);
 }
 
 if (pj.getLife() > 0) {

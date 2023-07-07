@@ -3,8 +3,7 @@ import PjDecorator from '../../baseDecorators/pjDecorator.ts';
 export default class HoodDecorator extends PjDecorator {
 
   takeDamage(damage: number): number {
-    if (this.pj.takeDamage(damage) <= 1) return 0;
-    return this.pj.takeDamage(damage) - 1;
+    return Math.max(this.pj.takeDamage(damage) - 1, 0);
   }
 
   doDamage(): number {

@@ -5,9 +5,12 @@ export default class GuardDecorator extends EnemyDecorator {
   takeDamage(damage: number): number {
     if (this.enemy.takeDamage(damage) <= 0) return 0;
 
-    return Math.random() > 0.4
-      ? this.enemy.takeDamage(damage)
-      : 0;
+    if (Math.random() > 0.4) {
+      return this.enemy.takeDamage(damage);
+    } else {
+      console.log('\x1b[36mThe enemy blocked the attack!\x1b[0m');
+      return 0;
+    }
   }
 
   doDamage(): number {

@@ -3,8 +3,7 @@ import EnemyDecorator from '../../baseDecorators/enemyDecorator.ts';
 export default class CottonShirtDecorator extends EnemyDecorator {
 
   takeDamage(damage: number): number {
-    if (this.enemy.takeDamage(damage) <= 2) return 0;
-    return this.enemy.takeDamage(damage) - 2;
+    return Math.max(this.enemy.takeDamage(damage) - 2, 0);
   }
 
   doDamage(): number {
