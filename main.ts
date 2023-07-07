@@ -5,7 +5,7 @@ import {
   GuardDecorator as EnemyGuardDecorator,
   HoodDecorator as EnemyHoodDecorator,
   SandalsDecorator as EnemySandalsDecorator,
-  SwordDecorator as EnemySwordDecorator
+  RustySwordDecorator as EnemyRustySwordDecorator
 } from './concreteDecorators/enemy/index.ts';
 import {
   CottonShirtDecorator as PjCottonShirtDecorator,
@@ -22,7 +22,7 @@ enemy = new EnemyCottonShirtDecorator(enemy);
 enemy = new EnemyGuardDecorator(enemy);
 enemy = new EnemyHoodDecorator(enemy);
 enemy = new EnemySandalsDecorator(enemy);
-enemy = new EnemySwordDecorator(enemy);
+enemy = new EnemyRustySwordDecorator(enemy);
 
 pj = new PjCottonShirtDecorator(pj);
 pj = new PjGuardDecorator(pj);

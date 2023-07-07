@@ -1,6 +1,6 @@
 import PjDecorator from '../../baseDecorators/pjDecorator.ts';
 
-export default class CottonShirtDecorator extends PjDecorator {
+export default class SwordDecorator extends PjDecorator {
 
   takeDamage(damage: number): number {
     return this.pj.takeDamage(damage);
